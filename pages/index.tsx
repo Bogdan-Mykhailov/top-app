@@ -1,13 +1,18 @@
 import React from "react";
-import {Button, HTag} from "../components";
-
+import {Button, HTag, Paragraph, Tag} from "../components";
 
 export default function Home(): JSX.Element {
   return (
     <>
       <HTag tag='h1'>Текст</HTag>
-      <Button appearance='primary'>Text</Button>
-      <Button appearance='ghost'>Text</Button>
+      <Button arrow='down' appearance='primary'>Text</Button>
+      <Button arrow='right' appearance='ghost'>Text</Button>
+      <Paragraph>Напишу сразу в двух курсах</Paragraph>
+      <Tag color='green'>Text</Tag>
+      <Tag color='primary' size='large'>Text</Tag>
+      <Tag color='red'>Text</Tag>
+      <Tag size='large'>Text</Tag>
+      <Tag color='gray'>Text</Tag>
     </>
   );
 }
