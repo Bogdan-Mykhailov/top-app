@@ -1,5 +1,5 @@
 import React, {useEffect, useState, KeyboardEvent} from 'react';
-import {IRating} from "./Rating.props";
+import {IRatingProps} from "./Rating.props";
 import s from './Rating.module.css';
 import StarIcon from './star.svg';
 import cn from 'classnames';
@@ -9,7 +9,7 @@ export const Rating = ({
                          setRating,
                          isEditable = false,
                          ...restProps
-                       }: IRating): JSX.Element => {
+                       }: IRatingProps): JSX.Element => {
   const [ratingArr, setRatingArr] = useState<JSX.Element[]>(new Array(5).fill(<></>));
 
   useEffect(() => {

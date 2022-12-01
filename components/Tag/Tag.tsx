@@ -1,9 +1,9 @@
 import React from 'react';
-import {ITag} from "./Tag.props";
+import {ITagProps} from "./Tag.props";
 import s from './Tag.module.css';
 import cn from 'classnames';
 
-export const Tag = ({size = 'medium', color = 'ghost', className, href, children, ...restProps}: ITag): JSX.Element => {
+export const Tag = ({size = 'medium', color = 'ghost', className, href, children, ...restProps}: ITagProps): JSX.Element => {
   return <div className={cn(s.tag, className, {
     [s.ghost]: color === 'ghost',
     [s.red]: color === 'red',

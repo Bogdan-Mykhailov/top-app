@@ -1,5 +1,5 @@
 import React from 'react';
-import {IParagraph} from "./Paragraph.props";
+import {IParagraphProps} from "./Paragraph.props";
 import s from './Paragraph.module.css';
 import cn from 'classnames';
 
@@ -8,7 +8,7 @@ export const Paragraph = ({
                             size = 'medium',
                             className,
                             ...restProps
-                          }: IParagraph): JSX.Element => {
+                          }: IParagraphProps): JSX.Element => {
   return (
     <p className={cn(s.paragraph, className, {
       [s.large]: size == 'large',
