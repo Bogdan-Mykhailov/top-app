@@ -3,8 +3,8 @@ import {IHeaderProps} from "./Header.props";
 
 export const Header = ({...restProps}: IHeaderProps): JSX.Element => {
   return (
-    <div {...restProps}>
+    <header {...restProps}>
       Header
-    </div>
+    </header>
   );
 };
