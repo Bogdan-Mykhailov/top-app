@@ -1,12 +1,15 @@
 import React, {FunctionComponent} from "react";
 import {Layout} from "./Layout";
+import { AppContextProvider, IAppContext} from "../context/app.context";
 
-export const WithLayout = <T extends Record<string, unknown>>(Component: FunctionComponent<T>) => {
-    return function withLayoutComponent(restProps: T): JSX.Element {
-        return (
-            <Layout>
-                <Component {...restProps} />
-            </Layout>
-        );
-    };
+export const WithLayout = <T extends Record<string, unknown> & IAppContext>(Component: FunctionComponent<T>) => {
+  return function withLayoutComponent(props: T): JSX.Element {
+    return (
+      <AppContextProvider menu={props.menu} firstCategory={props.firstCategory}>
+        <Layout>
+          <Component {...props} />
+        </Layout>
+      </AppContextProvider>
+    );
+  };
 };
