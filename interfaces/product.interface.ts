@@ -14,7 +14,7 @@ export interface IReviewModel {
 
 export interface IProductModel {
   _id: string;
-  categories: string;
+  categories: string[];
   tags: string[];
   title: string;
   link: string;
