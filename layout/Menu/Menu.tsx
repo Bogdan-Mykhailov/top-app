@@ -50,7 +50,7 @@ export const Menu = (): JSX.Element => {
               {buildThirdLevel(m.pages, menuItem.route)}
             </div>
           </div>
-        ))};
+        ))}
       </div>
     );
   };
