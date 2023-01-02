@@ -7,17 +7,20 @@ import { ITopPageModel, TopLevelCategory } from "../../interfaces/page.interface
 import { ParsedUrlQuery } from "querystring";
 import { IProductModel } from "../../interfaces/product.interface";
 import { firstLevelMenu } from "../../helpers/helpers";
+import { TopPageComponent } from "../../page-components";
 
-function Course({menu, page, products}: ICourseProps): JSX.Element {
+function TopPage({firstCategory, page, products}: ITopPageProps): JSX.Element {
 
   return (
-    <>
-      {products && products.length}
-    </>
+    <TopPageComponent
+      firstCategory={firstCategory}
+      page={page}
+      products={products}
+    />
   );
 }
 
-export default WithLayout(Course);
+export default WithLayout(TopPage);
 
 export const getStaticPaths: GetStaticPaths = async () => {
   let paths: string[] = [];
@@ -33,7 +36,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<ICourseProps> = async ({params}: GetStaticPropsContext<ParsedUrlQuery>) => {
+export const getStaticProps: GetStaticProps<ITopPageProps> = async ({params}: GetStaticPropsContext<ParsedUrlQuery>) => {
   if (!params) {
     return {
       notFound: true
@@ -74,7 +77,7 @@ export const getStaticProps: GetStaticProps<ICourseProps> = async ({params}: Get
   }
 };
 
-interface ICourseProps extends Record<string, unknown> {
+interface ITopPageProps extends Record<string, unknown> {
   menu: IMenuItem[];
   firstCategory: TopLevelCategory;
   page: ITopPageModel;
