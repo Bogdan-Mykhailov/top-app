@@ -1,7 +1,7 @@
 import s from "./TopPageComponent.module.css";
 import React from "react";
 import {ITopPageComponentProps} from "./TopPageComponent.props";
-import {HhData, HTag, Tag} from "../../components";
+import {Advantages, HhData, HTag, Paragraph, Tag} from "../../components";
 import {TopLevelCategory} from "../../interfaces/page.interface";
 
 export const TopPageComponent = ({
@@ -23,7 +23,15 @@ export const TopPageComponent = ({
         <HTag tag='h2'>Вакансии - {page.category}</HTag>
         <Tag color='red' size='medium'>hh.ru</Tag>
       </div>
-      {firstCategory === TopLevelCategory.Courses && <HhData {...page.hh} />}
+      {firstCategory === TopLevelCategory.Courses && page.hh && <HhData {...page.hh} />}
+      {page.advantages && page.advantages.length > 0 && <>
+        <HTag tag='h2'>Преимущества</HTag>
+        <Advantages advantages={page.advantages}/>
+      </>
+      }
+      {page.seoText && <Paragraph>{page.seoText}</Paragraph>}
+      <HTag tag='h2'>Получаемые навыки</HTag>
+      {page.tags.map(t => <Tag key={t} color='primary'>{t}</Tag>)}
     </div>
   );
 };
