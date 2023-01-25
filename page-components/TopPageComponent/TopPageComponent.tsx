@@ -1,8 +1,9 @@
 import s from "./TopPageComponent.module.css";
 import React from "react";
 import {ITopPageComponentProps} from "./TopPageComponent.props";
-import {Advantages, HhData, HTag, Paragraph, Tag} from "../../components";
+import {Advantages, HhData, HTag, Sort, Tag} from "../../components";
 import {TopLevelCategory} from "../../interfaces/page.interface";
+import {SortEnum} from "../../components/Sort/Sort.props";
 
 export const TopPageComponent = ({
                                    page,
@@ -14,7 +15,7 @@ export const TopPageComponent = ({
       <div className={s.title}>
         <HTag tag='h1'>{page.title}</HTag>
         {products && <Tag color='gray' size='medium'>{products.length}</Tag>}
-        <span>Сортировка</span>
+        <Sort sort={SortEnum.Rating} SetSort={() => {}} />
       </div>
       <div>
         {products && products.map(p => (<div key={p._id}>{p.title}</div>))}
